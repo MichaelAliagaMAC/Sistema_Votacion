@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+    <title>Panel de Candidatos</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <style>
+      .headerFont{
+        font-family: 'Ubuntu', sans-serif;
+        font-size: 24px;
+      }
+
+      .subFont{
+        font-family: 'Raleway', sans-serif;
+        font-size: 14px;
+        
+      }
+      
+      .specialHead{
+        font-family: 'Oswald', sans-serif;
+      }
+
+      .normalFont{
+        font-family: 'Roboto Condensed', sans-serif;
+      }
+    </style>
+
+  </head>
+  <body>
+	
+	<div class="container">
+  	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse
+    " role="navigation">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+          <a href="cpanel.php" class="navbar-brand headerFont text-lg"><strong>Voto Seguro</strong></a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="example-nav-collapse">
+          <ul class="nav navbar-nav">
+          </ul>
+          
+
+          <a href="cpanel.php"><button type="submit" class="btn btn-success navbar-right navbar-btn"><span class="normalFont"><strong>Panel Administrativo</strong></span></button></a>
+        </div>
+
+      </div> <!-- end of container -->
+    </nav>
+
+    <div class="container" style="padding:100px;">
+      <div class="row">
+        <div class="col-sm-3">
+          <img src="images/Candidato1.jpg" class="img img-thumbnail" style="width:200px;height:200px;" alt="">
+          <h4 class="normalFont text-center">Alejandro Ramírez Quiroga</h4>
+          <h5 class="normalFont text-center">AEx regidor municipal, defensor de la descentralización y la participación ciudadana. Ha trabajado en proyectos de acceso a la justicia en comunidades rurales.</h5>
+          <hr>
+          <ul class="normalFont text-left">
+            <li>Nacido: 12 de marzo de 1975, Cusco</li>
+            <li>Educación: Abogado especializado en derecho constitucional (Universidad Nacional de San Antonio Abad del Cusco)</li>            
+          </ul>
+        </div>
+        <div class="col-sm-3">
+          <img src="images/Candidato2.jpg" class="img img-thumbnail" style="width:200px;height:200px;" alt="">
+          <h4 class="normalFont text-center">Mariana Torres Delgado</h4>
+          <h5 class="normalFont text-center">Consultora en políticas públicas y desarrollo sostenible. Ha liderado programas de innovación social y busca modernizar la gestión pública con enfoque tecnológico. 
+            <hr>
+            <ul class="text-left">
+              <li>Nacido: 8 de septiembre de 1982, Lima</li>
+              <li>Educación: Economista (Pontificia Universidad Católica del Perú)</li>
+            </ul>
+            
+          </h5>
+        </div>
+        <div class="col-sm-3">
+          <img src="images/Candidato1.jpg" class="img img-thumbnail" style="width:200px;height:200px;" alt="">
+          <h4 class="normalFont text-center">Ricardo Huamán Paredes</h4>
+          <h5 class="text-center normalFont">Ex decano del Colegio de Ingenieros de Arequipa. Promueve infraestructura sostenible y proyectos de integración regional. Reconocido por su trabajo en obras públicas.</h5>
+          <hr>
+          <ul class="text-left">
+            <li>Nacido: 21 de enero de 1968, Arequipa</li>
+            <li>Educación: Ingeniero civil (Universidad Nacional de San Agustín de Arequipa).</li>
+           
+          </ul>
+        </div>
+        <div class="col-sm-3">
+          <img src="images/Candidato2.jpg" class="img img-thumbnail" style="width:200px;height:200px;" alt="">
+          <h4 class="normalFont text-center">Valeria Rojas Salazar</h4>
+          <h5 class="normalFont text-center">Periodista y activista cultural. Ha impulsado campañas de transparencia y educación cívica. Su propuesta se centra en fortalecer la confianza ciudadana en los procesos democráticos</h5>
+          <hr>
+          <ul class="text-left normalFont">
+            <li>Nacida: 30 de junio de 1990, Trujillo</li>
+            <li>Comunicadora social (Universidad Tecnológica del Perú)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
