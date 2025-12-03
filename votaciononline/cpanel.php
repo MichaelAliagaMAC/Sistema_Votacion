@@ -72,7 +72,7 @@
           
           <div class="page-header">
             <h2 class="specialHead">Panel de Control</h2>
-            <p class="normalFont">Estadistica de votos.</p>
+            <p class="normalFont">Conteo de votos.</p>
           </div>
           
           <div class="col-sm-12">
@@ -109,11 +109,11 @@
                   echo "<strong>Alejandro Ramírez Quiroga</strong><br>";
                   echo "
                   <div class='progress'>
-                    <div class='progress-bar progress-bar-success' role='progressbar' aria-valuenow=\"$idm_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$idm_value."%'>
-                      <span class='sr-only'>BJP</span>
-                    </div>
+                  <div class='progress-bar progress-bar-success' role='progressbar' aria-valuenow=\"$idm_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$idm_value."%'>
+                    $IDM votos
                   </div>
-                  ";
+                </div>
+                ";
                 }
 
                 //Candidato2
@@ -134,8 +134,8 @@
                   echo "<strong>Mariana Torres Delgado</strong><br>";
                   echo "
                   <div class='progress'>
-                    <div class='progress-bar progress-bar-primary' role='progressbar' aria-valuenow=\"70\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$gp_value."%'>
-                      <span class='sr-only'>BJP</span>
+                    <div class='progress-bar progress-bar-primary' role='progressbar' aria-valuenow=\"$gp_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$gp_value."%'>
+                      $GP votos
                     </div>
                   </div>
                   ";
@@ -159,8 +159,8 @@
                   echo "<strong>Ricardo Huamán Paredes</strong><br>";
                   echo "
                   <div class='progress'>
-                    <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow=\"70\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$jms_value."%'>
-                      <span class='sr-only'>BJP</span>
+                    <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow=\"$jms_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$jms_value."%'>
+                      $JMS votos
                     </div>
                   </div>
                   ";
@@ -184,8 +184,8 @@
                   echo "<strong>Valeria Rojas Salazar</strong><br>";
                   echo "
                   <div class='progress'>
-                    <div class='progress-bar progress-bar-warning' role='progressbar' aria-valuenow=\"70\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$pv_value."%'>
-                      <span class='sr-only'>TMC</span>
+                    <div class='progress-bar progress-bar-warning' role='progressbar' aria-valuenow=\"$pv_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$pv_value."%'>
+                      $PV votos
                     </div>
                   </div>
                   ";
@@ -196,28 +196,18 @@
                 $total=0;
 
                 // Total
-                $sql ="SELECT * FROM tbl_users";
-                $result= mysqli_query($conn, $sql);
+                $sql ="SELECT COUNT(*) AS total_validos FROM tbl_users WHERE voted_for IN ('IDM', 'GP', 'JMS', 'PV')";
+                  $result= mysqli_query($conn, $sql);
 
-                if(mysqli_num_rows($result)>0)
-                {
-                  while($row= mysqli_fetch_assoc($result))
-                  {
-                    if($row['voted_for'])
-                      $total++;
+                  if($row = mysqli_fetch_assoc($result)) {
+                    $total = $row['total_validos'];
+                    echo "<strong>Número total de Votos</strong><br>";
+                    echo "
+                    <div class='text-primary'>
+                      <h3 class='normalFont'>Votos : $total </h3>
+                    </div>
+                    ";
                   }
-
-
-                  $tptal= $total*10;
-
-                  echo "<strong>Número total de Votos</strong><br>";
-                  echo "
-                  <div class='text-primary'>
-                    <h3 class='normalFont'>Votos : $total </h3>
-                  </div>
-                  ";
-                }
-
               }
             ?>
           </div>
