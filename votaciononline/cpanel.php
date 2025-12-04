@@ -1,221 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Panel de Control</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panel de Control - Voto Seguro</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Raleway&family=Oswald&family=Roboto+Condensed&display=swap" rel="stylesheet" />
 
     <style>
-      .headerFont{
+      body {
         font-family: 'Ubuntu', sans-serif;
-        font-size: 24px;
+        background-color: #f4f6f9;
       }
 
-      .subFont{
-        font-family: 'Raleway', sans-serif;
-        font-size: 14px;
-        
+      .navbar {
+        background-color: #2c3e50;
+        border: none;
       }
-      
-      .specialHead{
+
+      .navbar-brand {
+        color: #ecf0f1 !important;
+        font-weight: bold;
+      }
+
+      .navbar-btn {
+        margin-top: 8px;
+      }
+
+      .stats-box {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        padding: 30px;
+        margin-top: 120px;
+      }
+
+      .stats-box h2 {
         font-family: 'Oswald', sans-serif;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 10px;
       }
 
-      .normalFont{
+      .stats-box p {
         font-family: 'Roboto Condensed', sans-serif;
+        font-size: 16px;
+        color: #7f8c8d;
+      }
+
+      .candidate-block {
+        margin-bottom: 30px;
+      }
+
+      .progress {
+        height: 30px;
+        background-color: #ecf0f1;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        font-weight: bold;
+        line-height: 30px;
+        padding-left: 10px;
+        animation: growBar 1s ease;
+      }
+
+      @keyframes growBar {
+        from { width: 0; }
+        to { width: var(--bar-width); }
+      }
+
+      .total-votes {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        color: #2980b9;
       }
     </style>
-
   </head>
   <body>
-    
-  <div class="container">
-    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse
-    " role="navigation">
-      <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div class="navbar-header">
-          <a href="cpanel.php" class="navbar-brand headerFont text-lg"><strong>Voto Seguro</strong></a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="example-nav-collapse">
-          <ul class="nav navbar-nav">
-            
-             <li><a href="nomination.html"><span class="subFont"><strong>Lista de Candidatos</strong></span></a></li>
-            <li><a href="changePassword.php"><span class="subFont"><strong>Administrar Contraseñas</strong></span></a></li>
-          
-          </ul>
-          
-          
-          <span class="normalFont"><a href="index.html" class="btn btn-success navbar-right navbar-btn"><strong>Cerrar Sesión</strong></a></span></button>
-        </div>
-
-      </div> <!-- end of container -->
-    </nav>
-
-    <div class="container" style="padding:100px;">
-      <div class="row">
-        <div class="col-sm-12" style="border:2px solid gray;">
-          
-          <div class="page-header">
-            <h2 class="specialHead">Panel de Control</h2>
-            <p class="normalFont">Conteo de votos.</p>
+    <div class="container">
+      <nav class="navbar navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="cpanel.php" class="navbar-brand">Voto Seguro</a>
           </div>
-          
-          <div class="col-sm-12">
-            <?php
-              require 'config.php';
-
-              $IDM=0;
-              $GP=0;
-              $JMS=0;
-              $PV=0;
-
-              $conn = mysqli_connect($hostname, $username, $password, $database);
-              if(!$conn)
-              {
-                echo "Hubo un fallo en la conexión.";
-              }
-              else
-              {
-
-                //Candidato1
-                $sql ="SELECT * FROM tbl_users WHERE voted_for='IDM'";
-                $result= mysqli_query($conn, $sql);
-
-                if(mysqli_num_rows($result)>0)
-                {
-                  while($row= mysqli_fetch_assoc($result))
-                  {
-                    if($row['voted_for'])
-                      $IDM++;
-                  }
-
-                  $idm_value= $IDM*10;
-
-                  echo "<strong>Alejandro Ramírez Quiroga</strong><br>";
-                  echo "
-                  <div class='progress'>
-                  <div class='progress-bar progress-bar-success' role='progressbar' aria-valuenow=\"$idm_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$idm_value."%'>
-                    $IDM votos
-                  </div>
-                </div>
-                ";
-                }
-
-                //Candidato2
-                $sql ="SELECT * FROM tbl_users WHERE voted_for='GP'";
-                $result= mysqli_query($conn, $sql);
-
-                if(mysqli_num_rows($result)>0)
-                {
-                  while($row= mysqli_fetch_assoc($result))
-                  {
-                    if($row['voted_for'])
-                      $GP++;
-                  }
-
-
-                  $gp_value= $GP*10;
-
-                  echo "<strong>Mariana Torres Delgado</strong><br>";
-                  echo "
-                  <div class='progress'>
-                    <div class='progress-bar progress-bar-primary' role='progressbar' aria-valuenow=\"$gp_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$gp_value."%'>
-                      $GP votos
-                    </div>
-                  </div>
-                  ";
-                }
-
-                //Candidato3
-                $sql ="SELECT * FROM tbl_users WHERE voted_for='JMS'";
-                $result= mysqli_query($conn, $sql);
-
-                if(mysqli_num_rows($result)>0)
-                {
-                  while($row= mysqli_fetch_assoc($result))
-                  {
-                    if($row['voted_for'])
-                      $JMS++;
-                  }
-
-
-                  $jms_value= $JMS*10;
-
-                  echo "<strong>Ricardo Huamán Paredes</strong><br>";
-                  echo "
-                  <div class='progress'>
-                    <div class='progress-bar progress-bar-info' role='progressbar' aria-valuenow=\"$jms_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$jms_value."%'>
-                      $JMS votos
-                    </div>
-                  </div>
-                  ";
-                }
-
-                //Candidato4
-                $sql ="SELECT * FROM tbl_users WHERE voted_for='PV'";
-                $result= mysqli_query($conn, $sql);
-
-                if(mysqli_num_rows($result)>0)
-                {
-                  while($row= mysqli_fetch_assoc($result))
-                  {
-                    if($row['voted_for'])
-                      $PV++;
-                  }
-
-
-                  $pv_value= $PV*10;
-
-                  echo "<strong>Valeria Rojas Salazar</strong><br>";
-                  echo "
-                  <div class='progress'>
-                    <div class='progress-bar progress-bar-warning' role='progressbar' aria-valuenow=\"$pv_value\" aria-valuemin=\"0\" aria-valuemax=\"100\" style='width: ".$pv_value."%'>
-                      $PV votos
-                    </div>
-                  </div>
-                  ";
-                }
-
-               echo "<hr>";
-
-                $total=0;
-
-                // Total
-                $sql ="SELECT COUNT(*) AS total_validos FROM tbl_users WHERE voted_for IN ('IDM', 'GP', 'JMS', 'PV')";
-                  $result= mysqli_query($conn, $sql);
-
-                  if($row = mysqli_fetch_assoc($result)) {
-                    $total = $row['total_validos'];
-                    echo "<strong>Número total de Votos</strong><br>";
-                    echo "
-                    <div class='text-primary'>
-                      <h3 class='normalFont'>Votos : $total </h3>
-                    </div>
-                    ";
-                  }
-              }
-            ?>
+          <div class="collapse navbar-collapse" id="example-nav-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="nomination.html"><strong>Lista de Candidatos</strong></a></li>
+              <li><a href="changePassword.php"><strong>Administrar Contraseñas</strong></a></li>
+            </ul>
+            <a href="index.html" class="btn btn-success navbar-btn navbar-right"><strong>Cerrar Sesión</strong></a>
           </div>
+        </div>
+      </nav>
 
+      <div class="row justify-content-center">
+        <div class="col-md-8 stats-box">
+          <h2>Panel de Control</h2>
+          <p>Estadística de votos por candidato</p>
+
+          <?php
+            require 'config.php';
+
+            $IDM = $GP = $JMS = $PV = 0;
+
+            $conn = mysqli_connect($hostname, $username, $password, $database);
+            if (!$conn) {
+              echo "<p>Error de conexión.</p>";
+            } else {
+              // Candidato 1
+              $result = mysqli_query($conn, "SELECT * FROM tbl_users WHERE voted_for='IDM'");
+              while ($row = mysqli_fetch_assoc($result)) { if ($row['voted_for']) $IDM++; }
+              $idm_value = $IDM * 10;
+              echo "<div class='candidate-block'>
+                      <strong>Alejandro Ramírez Quiroga</strong>
+                      <div class='progress'>
+                        <div class='progress-bar progress-bar-success' style='width: {$idm_value}%;'>{$IDM} votos</div>
+                      </div>
+                    </div>";
+
+              // Candidato 2
+              $result = mysqli_query($conn, "SELECT * FROM tbl_users WHERE voted_for='GP'");
+              while ($row = mysqli_fetch_assoc($result)) { if ($row['voted_for']) $GP++; }
+              $gp_value = $GP * 10;
+              echo "<div class='candidate-block'>
+                      <strong>Mariana Torres Delgado</strong>
+                      <div class='progress'>
+                        <div class='progress-bar progress-bar-primary' style='width: {$gp_value}%;'>{$GP} votos</div>
+                      </div>
+                    </div>";
+
+              // Candidato 3
+              $result = mysqli_query($conn, "SELECT * FROM tbl_users WHERE voted_for='JMS'");
+              while ($row = mysqli_fetch_assoc($result)) { if ($row['voted_for']) $JMS++; }
+              $jms_value = $JMS * 10;
+              echo "<div class='candidate-block'>
+                      <strong>Ricardo Huamán Paredes</strong>
+                      <div class='progress'>
+                        <div class='progress-bar progress-bar-info' style='width: {$jms_value}%;'>{$JMS} votos</div>
+                      </div>
+                    </div>";
+
+              // Candidato 4
+              $result = mysqli_query($conn, "SELECT * FROM tbl_users WHERE voted_for='PV'");
+              while ($row = mysqli_fetch_assoc($result)) { if ($row['voted_for']) $PV++; }
+              $pv_value = $PV * 10;
+              echo "<div class='candidate-block'>
+                      <strong>Valeria Rojas Salazar</strong>
+                      <div class='progress'>
+                        <div class='progress-bar progress-bar-warning' style='width: {$pv_value}%;'>{$PV} votos</div>
+                      </div>
+                    </div>";
+
+              // Total
+              $total = 0;
+              $result = mysqli_query($conn, "SELECT * FROM tbl_users");
+              while ($row = mysqli_fetch_assoc($result)) { if ($row['voted_for']) $total++; }
+              echo "<div class='total-votes'>Votos totales: {$total}</div>";
+            }
+          ?>
         </div>
       </div>
     </div>
-  </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
