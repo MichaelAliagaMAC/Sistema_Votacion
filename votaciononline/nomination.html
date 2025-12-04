@@ -1,119 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-    <title>Panel de Candidatos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panel de Candidatos - Voto Seguro</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&family=Raleway&family=Oswald&family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-      .headerFont{
-        font-family: 'Ubuntu', sans-serif;
-        font-size: 24px;
+      body {
+        font-family: "Ubuntu", sans-serif;
+        background-color: #f4f6f9;
       }
 
-      .subFont{
-        font-family: 'Raleway', sans-serif;
+      .navbar {
+        background-color: #2c3e50;
+        border: none;
+      }
+
+      .navbar-brand {
+        color: #ecf0f1 !important;
+        font-weight: bold;
+      }
+
+      .admin-btn {
+        background-color: #27ae60;
+        color: white;
+        border-radius: 20px;
+        padding: 6px 20px;
+        margin-top: 8px;
+      }
+
+      .page-title {
+        text-align: center;
+        margin-top: 120px;
+        margin-bottom: 40px;
+        font-family: "Oswald", sans-serif;
+        font-size: 28px;
+        color: #2c3e50;
+      }
+
+      .candidate-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      .candidate-card img {
+        width: 160px;
+        height: 160px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+      }
+
+      .candidate-card h4 {
+        font-family: "Roboto Condensed", sans-serif;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .candidate-card h5 {
+        font-family: "Raleway", sans-serif;
         font-size: 14px;
-        
-      }
-      
-      .specialHead{
-        font-family: 'Oswald', sans-serif;
+        color: #7f8c8d;
+        margin-bottom: 15px;
       }
 
-      .normalFont{
-        font-family: 'Roboto Condensed', sans-serif;
+      .candidate-card ul {
+        list-style: none;
+        padding-left: 0;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: 14px;
+        text-align: left;
+        margin: 0 auto;
+        max-width: 300px;
+      }
+
+      .candidate-card ul li {
+        margin-bottom: 5px;
       }
     </style>
-
   </head>
   <body>
-	
-	<div class="container">
-  	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse
-    " role="navigation">
+    <nav class="navbar navbar-fixed-top">
       <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
         <div class="navbar-header">
-          <a href="cpanel.php" class="navbar-brand headerFont text-lg"><strong>Voto Seguro</strong></a>
+          <a href="cpanel.php" class="navbar-brand">Voto Seguro</a>
         </div>
-
-        <div class="collapse navbar-collapse" id="example-nav-collapse">
-          <ul class="nav navbar-nav">
-          </ul>
-          
-
-          <a href="cpanel.php"><button type="submit" class="btn btn-success navbar-right navbar-btn"><span class="normalFont"><strong>Panel Administrativo</strong></span></button></a>
+        <div class="navbar-right">
+          <a href="cpanel.php">
+            <button type="button" class="btn admin-btn navbar-btn">
+              Panel Administrativo
+            </button>
+          </a>
         </div>
-
-      </div> <!-- end of container -->
+      </div>
     </nav>
 
-    <div class="container" style="padding:100px;">
+    <div class="container">
+      <h2 class="page-title">Lista de Candidatos</h2>
       <div class="row">
-        <div class="col-sm-3">
-          <img src="images/Candidato1.jpg" class="img img-thumbnail" style="width:200px;height:200px;" alt="">
-          <h4 class="normalFont text-center">Alejandro Ramírez Quiroga</h4>
-          <h5 class="normalFont text-center">AEx regidor municipal, defensor de la descentralización y la participación ciudadana. Ha trabajado en proyectos de acceso a la justicia en comunidades rurales.</h5>
-          <hr>
-          <ul class="normalFont text-left">
-            <li>Nacido: 12 de marzo de 1975, Cusco</li>
-            <li>Educación: Abogado especializado en derecho constitucional (Universidad Nacional de San Antonio Abad del Cusco)</li>            
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <img src="images/Candidato2.jpg" class="img img-thumbnail" style="width:200px;height:200px;" alt="">
-          <h4 class="normalFont text-center">Mariana Torres Delgado</h4>
-          <h5 class="normalFont text-center">Consultora en políticas públicas y desarrollo sostenible. Ha liderado programas de innovación social y busca modernizar la gestión pública con enfoque tecnológico. 
-            <hr>
-            <ul class="text-left">
-              <li>Nacido: 8 de septiembre de 1982, Lima</li>
-              <li>Educación: Economista (Pontificia Universidad Católica del Perú)</li>
-            </ul>
-            
+        <div class="col-md-3 col-sm-6 candidate-card">
+          <img src="images/Candidato1.jpg" alt="Alejandro Ramírez Quiroga" />
+          <h4>Alejandro Ramírez Quiroga</h4>
+          <h5>
+            Ex regidor municipal, defensor de la descentralización y la
+            participación ciudadana. Ha trabajado en proyectos de acceso a la
+            justicia en comunidades rurales.
           </h5>
-        </div>
-        <div class="col-sm-3">
-          <img src="images/Candidato1.jpg" class="img img-thumbnail" style="width:200px;height:200px;" alt="">
-          <h4 class="normalFont text-center">Ricardo Huamán Paredes</h4>
-          <h5 class="text-center normalFont">Ex decano del Colegio de Ingenieros de Arequipa. Promueve infraestructura sostenible y proyectos de integración regional. Reconocido por su trabajo en obras públicas.</h5>
-          <hr>
-          <ul class="text-left">
-            <li>Nacido: 21 de enero de 1968, Arequipa</li>
-            <li>Educación: Ingeniero civil (Universidad Nacional de San Agustín de Arequipa).</li>
-           
+          <ul>
+            <li><strong>Nacido:</strong> 12 de marzo de 1975, Cusco</li>
+            <li>
+              <strong>Educación:</strong> Abogado especializado en derecho
+              constitucional (UNSAAC)
+            </li>
           </ul>
         </div>
-        <div class="col-sm-3">
-          <img src="images/Candidato2.jpg" class="img img-thumbnail" style="width:200px;height:200px;" alt="">
-          <h4 class="normalFont text-center">Valeria Rojas Salazar</h4>
-          <h5 class="normalFont text-center">Periodista y activista cultural. Ha impulsado campañas de transparencia y educación cívica. Su propuesta se centra en fortalecer la confianza ciudadana en los procesos democráticos</h5>
-          <hr>
-          <ul class="text-left normalFont">
-            <li>Nacida: 30 de junio de 1990, Trujillo</li>
-            <li>Comunicadora social (Universidad Tecnológica del Perú)</li>
+
+        <div class="col-md-3 col-sm-6 candidate-card">
+          <img src="images/Candidato2.jpg" alt="Mariana Torres Delgado" />
+          <h4>Mariana Torres Delgado</h4>
+          <h5>
+            Consultora en políticas públicas y desarrollo sostenible. Ha
+            liderado programas de innovación social y busca modernizar la
+            gestión pública con enfoque tecnológico.
+          </h5>
+          <ul>
+            <li><strong>Nacido:</strong> 8 de septiembre de 1982, Lima</li>
+            <li><strong>Educación:</strong> Economista (PUCP)</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 col-sm-6 candidate-card">
+          <img src="images/Candidato1.jpg" alt="Ricardo Huamán Paredes" />
+          <h4>Ricardo Huamán Paredes</h4>
+          <h5>
+            Ex decano del Colegio de Ingenieros de Arequipa. Promueve
+            infraestructura sostenible y proyectos de integración regional.
+            Reconocido por su trabajo en obras públicas.
+          </h5>
+          <ul>
+            <li><strong>Nacido:</strong> 21 de enero de 1968, Arequipa</li>
+            <li><strong>Educación:</strong> Ingeniero civil (UNSA)</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3 col-sm-6 candidate-card">
+          <img src="images/Candidato2.jpg" alt="Valeria Rojas Salazar" />
+          <h4>Valeria Rojas Salazar</h4>
+          <h5>
+            Periodista y activista cultural. Ha impulsado campañas de
+            transparencia y educación cívica. Su propuesta se centra en
+            fortalecer la confianza ciudadana en los procesos democráticos.
+          </h5>
+          <ul>
+            <li><strong>Nacida:</strong> 30 de junio de 1990, Trujillo</li>
+            <li><strong>Educación:</strong> Comunicadora social (UTP)</li>
           </ul>
         </div>
       </div>
     </div>
-    
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-
     <script src="js/bootstrap.min.js"></script>
   </body>
 </html>
