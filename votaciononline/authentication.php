@@ -49,7 +49,7 @@
           <span class="icon-bar"></span>
         </button>
         <div class="navbar-header">
-          <a href="cpanel.php" class="navbar-brand headerFont text-lg"><strong>ConfiguroWeb</strong></a>
+          <a href="cpanel.php" class="navbar-brand headerFont text-lg"><strong>Voto Seguro</strong></a>
         </div>
 
         <div class="collapse navbar-collapse" id="example-nav-collapse">
@@ -58,7 +58,7 @@
           </ul>
           
 
-          <button type="submit" class="btn btn-success navbar-right navbar-btn"><span class="normalFont"><strong>Admin Panel</strong></span></button>
+          <button type="submit" class="btn btn-success navbar-right navbar-btn"><span class="normalFont"><strong>Administrador</strong></span></button>
         </div>
 
       </div> <!-- end of container -->
