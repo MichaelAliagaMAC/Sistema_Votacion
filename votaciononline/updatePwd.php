@@ -62,7 +62,7 @@
           <button type="submit" class="btn btn-success navbar-right navbar-btn"><span class="normalFont"><strong>Administrador</strong></span></button>
         </div>
 
-      </div> <!-- end of container -->
+      </div>
     </nav>
 
     
@@ -73,14 +73,12 @@
 
 <?php
 
-					// Credentials
                       $hostname= "localhost";
                       $username= "root";
                       $password= "";
                       $database= "db_evoting";
 
 
-                    // UserInput Test
                       function test_input($data) {
                         $data = trim($data);
                         $data = stripslashes($data);
@@ -90,7 +88,6 @@
                       } 
 
 
-	// Fetch Data
 	if(empty($_POST['existingPassword']) || empty($_POST['newPassword']))
 	{
 		$error= "Fields Recquired.";
@@ -101,22 +98,15 @@
 		$new= test_input($_POST['newPassword']);
 	}
 
-	//Establish Connection
+	//Connection
 	$conn= mysql_connect($hostname, $username, $password, $database);
-
-	// Select Database
-	//$db= mysql_select_db($db, $conn);
-
-	// ******************************
-	// ADD USER NAME FIELD HERE-- FROM SESSION
-	//**********************************
 
 	$sql="SELECT * FROM db_evoting.tbl_admin WHERE admin_password='".$old."'";
 	$query= mysql_query($sql, $conn);
 	$rows= mysql_num_rows($query);
 	if($rows==1)
 	{
-		// Given Password is Valid
+
 		$sql="UPDATE db_evoting.tbl_admin SET admin_password='$new' WHERE admin_username='admin'"; // =============EDIT *SESSSION_SUERNAME *
 		if($query= mysql_query($sql, $conn))
 		{

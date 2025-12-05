@@ -61,7 +61,7 @@
           <button type="submit" class="btn btn-success navbar-right navbar-btn"><span class="normalFont"><strong>Administrador</strong></span></button>
         </div>
 
-      </div> <!-- end of container -->
+      </div> 
     </nav>
 
     
@@ -72,14 +72,12 @@
           <?php
                     
 
-                      // Credentials
                       $hostname= "localhost";
                       $username= "root";
                       $password= "";
                       $database= "db_evoting";
 
 
-                      // UserInput Test
                       function test_input($data) {
                         $data = trim($data);
                         $data = stripslashes($data);
@@ -98,7 +96,7 @@
                         $admin_password= test_input($_POST['adminPassword']);
 
 
-                        //Establish Connection
+                        //Connection
                         $conn= mysqli_connect($hostname, $username, $password, $database);
 
                         //Check

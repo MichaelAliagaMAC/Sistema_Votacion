@@ -81,7 +81,7 @@
           <?php
                       require('config.php');
 
-                      //Establish Connection
+                      //Connection
                         $conn= mysqli_connect($hostname, $username, $password, $database);
 
                         //Check

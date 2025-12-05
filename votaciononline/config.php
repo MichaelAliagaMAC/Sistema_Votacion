@@ -5,7 +5,6 @@
 				$password= "";
 				$database="db_evoting";
 
-				// UserInput Test
 					function test_input($data) {
 					  $data = trim($data);
 					  $data = stripslashes($data);

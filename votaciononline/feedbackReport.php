@@ -61,7 +61,7 @@
           <button type="submit" class="btn btn-success navbar-right navbar-btn"><span class="normalFont"><strong>Admin Panel</strong></span></button>
         </div>
 
-      </div> <!-- end of container -->
+      </div> 
     </nav>
 
     <div class="container" style="padding:100px;">
